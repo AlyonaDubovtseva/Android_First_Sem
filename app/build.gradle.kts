@@ -5,11 +5,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.android_first_sem"
+    namespace = "com.example.first_homework"
     compileSdk = 36
 
     defaultConfig {
-        applicationId = "com.example.android_first_sem"
+        applicationId = "com.example.first_homework"
         minSdk = 24
         targetSdk = 36
         versionCode = 1

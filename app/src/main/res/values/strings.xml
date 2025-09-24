@@ -1,3 +1,5 @@
 <resources>
-    <string name="app_name">Android_First_Sem</string>
+    <string name="app_name">First_Homework</string>
+    <string name="title_activity_second">SecondActivity</string>
+    <string name="title_activity_third">ThirdActivity</string>
 </resources>
