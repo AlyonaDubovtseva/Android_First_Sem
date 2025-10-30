@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="app_name">Homework2</string>
+	<string name="email">Email</string>
+	<string name="password">Пароль</string>
+	<string name="login">Вход</string>
+	<string name="continue_btn">Продолжить</string>
+	<string name="invalid_email">Введите корректный email</string>
+	<string name="empty_email">Введите email</string>
+	<string name="empty_password">Введите пароль</string>
+	<string name="short_password">Минимум 8 символов</string>
+	<string name="notes">Заметки</string>
+	<string name="no_notes">Пока нет заметок</string>
+	<string name="add_note">Добавить</string>
+	<string name="title">Заголовок</string>
+	<string name="title_empty">Заголовок не может быть пустым</string>
+	<string name="content">Текст</string>
+	<string name="save">Сохранить</string>
+	<string name="cancel">Отмена</string>
+	<string name="choose_color">Цветовая схема</string>
+	<string name="color_red">Красный</string>
+	<string name="color_green">Зелёный</string>
+	<string name="color_blue">Синий</string>
+</resources>
