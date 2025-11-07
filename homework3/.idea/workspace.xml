@@ -9,9 +9,7 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5a064850-c35c-45ab-be97-3660cc86f4a8" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../homework3_rigth/app/src/main/java/itis/android/myapplication/notifications/NotificationHelper.kt" afterDir="false" />
-    </list>
+    <list default="true" id="5a064850-c35c-45ab-be97-3660cc86f4a8" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
