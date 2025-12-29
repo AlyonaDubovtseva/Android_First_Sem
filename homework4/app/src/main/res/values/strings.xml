@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">Coroutine Homework</string>
+
+    <string name="screen_title">Домашка по корутинам</string>
+
+    <string name="slider_title_coroutines_count">Количество корутин: %1$d</string>
+
+    <string name="dispatcher_title">Выбор диспетчера</string>
+    <string name="dispatcher_label">Диспетчер</string>
+    <string name="dispatcher_default">Dispatchers.Default</string>
+    <string name="dispatcher_io">Dispatchers.IO</string>
+    <string name="dispatcher_main">Dispatchers.Main</string>
+
+    <string name="switch_sequential_label">Последовательный запуск</string>
+    <string name="switch_parallel_label">Параллельный запуск</string>
+    <string name="switch_lazy_start_label">Отложенный запуск корутин</string>
+    <string name="switch_background_label">Работа в бэкграунде</string>
+
+    <string name="button_start_label">Запустить корутины</string>
+    <string name="button_cancel_label">Отменить корутины</string>
+
+    <string name="error_toast_message">Произошла ошибка в корутине (только тост)</string>
+    <string name="error_snackbar_message">Произошла ошибка в корутине (показан Snackbar)</string>
+    <string name="error_reset_message">Настройки корутин сброшены по умолчанию из-за ошибки</string>
+
+    <string name="cancelled_coroutines_message">Отменено корутин: %1$d</string>
+    <string name="finished_coroutines_message">Завершилось корутин: %1$d из %2$d</string>
+</resources>
