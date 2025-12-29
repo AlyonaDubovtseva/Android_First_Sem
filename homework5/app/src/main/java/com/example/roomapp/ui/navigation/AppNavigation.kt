@@ -1,17 +1,8 @@
-package com.example.roomapp
+package com.example.roomapp.ui.navigation
 
-import android.os.Bundle
-import androidx.activity.ComponentActivity
-import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.collectAsState
-import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
-import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
@@ -19,7 +10,6 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import androidx.navigation.compose.rememberNavController
 import com.example.roomapp.data.datastore.AppDataStore
 import com.example.roomapp.data.database.AppDatabase
 import com.example.roomapp.data.repository.CatRepository
@@ -34,61 +24,28 @@ import com.example.roomapp.ui.screens.AddCatScreen
 import com.example.roomapp.ui.screens.CatsListScreen
 import com.example.roomapp.ui.screens.ProfileScreen
 import com.example.roomapp.ui.screens.RestoreAccountScreen
-import com.example.roomapp.ui.theme.AppTheme
-import kotlinx.coroutines.flow.first
-
-class MainActivity : ComponentActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContent {
-            AppTheme {
-                Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colorScheme.background
-                ) {
-                    CatLoversApp()
-                }
-            }
-        }
-    }
-}
 
 @Composable
-fun CatLoversApp() {
+fun AppNavigation(
+    navController: NavHostController,
+    startDestination: String = Screen.Login.route
+) {
     val context = LocalContext.current
-    val navController = rememberNavController()
 
     val database = remember { AppDatabase.getDatabase(context) }
     val userRepository = remember { UserRepository(database.userDao()) }
     val catRepository = remember { CatRepository(database.catDao()) }
     val dataStore = remember { AppDataStore(context) }
 
-    val isLoggedIn by dataStore.isLoggedIn.collectAsState(initial = false)
-    val userId by dataStore.userId.collectAsState(initial = null)
-
     LaunchedEffect(Unit) {
         userRepository.cleanupDeletedUsers()
-
-        val savedUserId = dataStore.userId.first()
-        val savedIsLoggedIn = dataStore.isLoggedIn.first()
-        
-        if (savedIsLoggedIn && savedUserId != null && savedUserId > 0) {
-            val user = userRepository.getActiveUserById(savedUserId)
-            if (user != null) {
-                navController.navigate("cats_list/$savedUserId") {
-                    popUpTo(0) { inclusive = true }
-                }
-            } else {
-                dataStore.clearUserData()
-            }
-        }
     }
 
     NavHost(
         navController = navController,
-        startDestination = "login"
+        startDestination = startDestination
     ) {
-        composable("login") {
+        composable(Screen.Login.route) {
             val viewModel: AuthViewModel = viewModel(
                 factory = object : ViewModelProvider.Factory {
                     override fun <T : ViewModel> create(modelClass: Class<T>): T {
@@ -103,7 +60,7 @@ fun CatLoversApp() {
             )
         }
 
-        composable("register") {
+        composable(Screen.Register.route) {
             val viewModel: AuthViewModel = viewModel(
                 factory = object : ViewModelProvider.Factory {
                     override fun <T : ViewModel> create(modelClass: Class<T>): T {
@@ -118,19 +75,8 @@ fun CatLoversApp() {
             )
         }
 
-        composable("cats_list/{userId}") { backStackEntry ->
-            val userIdFromArgs = backStackEntry.arguments?.getString("userId")?.toLongOrNull()
-            val userIdFromStore by dataStore.userId.collectAsState(initial = null)
-            val userId = userIdFromArgs ?: userIdFromStore ?: 0L
-
-            if (userId == 0L) {
-                LaunchedEffect(Unit) {
-                    navController.navigate("login") {
-                        popUpTo(0) { inclusive = true }
-                    }
-                }
-                return@composable
-            }
+        composable(Screen.CatsList.route) { backStackEntry ->
+            val userId = backStackEntry.arguments?.getString("userId")?.toLongOrNull() ?: 0L
 
             val viewModel: CatsViewModel = viewModel(
                 factory = object : ViewModelProvider.Factory {
@@ -147,19 +93,8 @@ fun CatLoversApp() {
             )
         }
 
-        composable("add_cat/{userId}") { backStackEntry ->
-            val userIdFromArgs = backStackEntry.arguments?.getString("userId")?.toLongOrNull()
-            val userIdFromStore by dataStore.userId.collectAsState(initial = null)
-            val userId = userIdFromArgs ?: userIdFromStore ?: 0L
-
-            if (userId == 0L) {
-                LaunchedEffect(Unit) {
-                    navController.navigate("login") {
-                        popUpTo(0) { inclusive = true }
-                    }
-                }
-                return@composable
-            }
+        composable(Screen.AddCat.route) { backStackEntry ->
+            val userId = backStackEntry.arguments?.getString("userId")?.toLongOrNull() ?: 0L
 
             val viewModel: CatsViewModel = viewModel(
                 factory = object : ViewModelProvider.Factory {
@@ -176,19 +111,8 @@ fun CatLoversApp() {
             )
         }
 
-        composable("profile/{userId}") { backStackEntry ->
-            val userIdFromArgs = backStackEntry.arguments?.getString("userId")?.toLongOrNull()
-            val userIdFromStore by dataStore.userId.collectAsState(initial = null)
-            val userId = userIdFromArgs ?: userIdFromStore ?: 0L
-
-            if (userId == 0L) {
-                LaunchedEffect(Unit) {
-                    navController.navigate("login") {
-                        popUpTo(0) { inclusive = true }
-                    }
-                }
-                return@composable
-            }
+        composable(Screen.Profile.route) { backStackEntry ->
+            val userId = backStackEntry.arguments?.getString("userId")?.toLongOrNull() ?: 0L
 
             val viewModel: ProfileViewModel = viewModel(
                 factory = object : ViewModelProvider.Factory {
@@ -205,19 +129,8 @@ fun CatLoversApp() {
             )
         }
 
-        composable("restore_account/{userId}") { backStackEntry ->
-            val userIdFromArgs = backStackEntry.arguments?.getString("userId")?.toLongOrNull()
-            val userIdFromStore by dataStore.userId.collectAsState(initial = null)
-            val userId = userIdFromArgs ?: userIdFromStore ?: 0L
-
-            if (userId == 0L) {
-                LaunchedEffect(Unit) {
-                    navController.navigate("login") {
-                        popUpTo(0) { inclusive = true }
-                    }
-                }
-                return@composable
-            }
+        composable(Screen.RestoreAccount.route) { backStackEntry ->
+            val userId = backStackEntry.arguments?.getString("userId")?.toLongOrNull() ?: 0L
 
             val viewModel: RestoreAccountViewModel = viewModel(
                 factory = object : ViewModelProvider.Factory {

@@ -1,3 +1,122 @@
 <resources>
-    <string name="app_name">RoomApp</string>
+
+    <string name="app_name">Cat Lovers</string>
+
+    <string name="welcome">Добро пожаловать!</string>
+    <string name="login">Вход</string>
+    <string name="register">Регистрация</string>
+    <string name="email">Email</string>
+    <string name="password">Пароль</string>
+    <string name="confirm_password">Подтвердите пароль</string>
+    <string name="name">Имя</string>
+    <string name="phone">Телефон</string>
+    <string name="dont_have_account">Нет аккаунта? Зарегистрироваться</string>
+    <string name="have_account">Уже есть аккаунт? Войти</string>
+    <string name="login_success">Успешный вход!</string>
+    <string name="register_success">Регистрация успешна!</string>
+    <string name="error_invalid_credentials">Неверный email или пароль</string>
+    <string name="error_user_exists">Пользователь с таким email уже существует</string>
+    <string name="error_empty_fields">Все поля должны быть заполнены</string>
+    <string name="error_password_length">Пароль должен содержать минимум 6 символов</string>
+    <string name="error_passwords_dont_match">Пароли не совпадают</string>
+
+    <!-- Cats -->
+    <string name="my_cats">Мои котики</string>
+    <string name="add_cat">Добавить котика</string>
+    <string name="cat_name">Имя котика</string>
+    <string name="cat_breed">Порода</string>
+    <string name="cat_age">Возраст (лет)</string>
+    <string name="cat_description">Описание</string>
+    <string name="cat_rating">Рейтинг</string>
+    <string name="no_cats">У вас пока нет котиков\nДобавьте первого!</string>
+    <string name="save">Сохранить</string>
+    <string name="cancel">Отмена</string>
+
+    <!-- Profile -->
+    <string name="profile">Профиль</string>
+    <string name="logout">Выйти</string>
+    <string name="delete_account">Удалить аккаунт</string>
+    <string name="logout_confirm">Вы действительно хотите выйти?</string>
+    <string name="delete_account_confirm">Вы уверены, что хотите удалить аккаунт? Восстановить можно в течение 7 дней.</string>
+    <string name="account_deleted_success">Аккаунт удален</string>
+    <string name="account_restored_success">Аккаунт восстановлен</string>
+
+    <!-- Restore Account -->
+    <string name="account_deleted">Ваш аккаунт был удален</string>
+    <string name="restore_info">Вы можете восстановить аккаунт в течение 7 дней после удаления</string>
+    <string name="restore_account">Восстановить аккаунт</string>
+    <string name="delete_permanently">Удалить окончательно</string>
+    <string name="days_left">Дней до полного удаления: %d</string>
+    <string name="account_restored">Аккаунт восстановлен!</string>
+    <string name="account_deleted_permanently">Аккаунт удален окончательно</string>
+
+    <!-- Sorting -->
+    <string name="sort_by">Сортировка</string>
+    <string name="sort_name_asc">По имени (А-Я)</string>
+    <string name="sort_name_desc">По имени (Я-А)</string>
+    <string name="sort_age_asc">По возрасту (младшие)</string>
+    <string name="sort_age_desc">По возрасту (старшие)</string>
+    <string name="sort_rating">По рейтингу</string>
+    <string name="sort_date_new">По дате (новые)</string>
+    <string name="sort_date_old">По дате (старые)</string>
+
+    <!-- Common -->
+    <string name="loading">Загрузка...</string>
+    <string name="error_occurred">Произошла ошибка</string>
+    <string name="try_again">Попробовать снова</string>
+    <string name="back">Назад</string>
+    <string name="yes">Да</string>
+    <string name="no">Нет</string>
+    <string name="save_changes">Сохранить изменения</string>
+    <string name="cancel_changes">Отменить изменения</string>
+
+    <!-- Additional strings -->
+    <string name="welcome_subtitle">Войдите в свой аккаунт</string>
+    <string name="login_button">Войти</string>
+    <string name="register_button">Зарегистрироваться</string>
+    <string name="logo">Логотип</string>
+    <string name="enter_cat_name">Введите имя котика</string>
+    <string name="enter_breed">Введите породу</string>
+    <string name="enter_valid_age">Введите корректный возраст</string>
+    <string name="rating_range">Рейтинг должен быть от 0.0 до 5.0</string>
+    <string name="rating_label">Рейтинг (0.0-5.0)</string>
+    <string name="image_url_optional">URL изображения (опционально)</string>
+    <string name="image">Изображение</string>
+    <string name="sort">Сортировка</string>
+    <string name="profile_icon">Профиль</string>
+    <string name="add_cat_icon">Добавить котика</string>
+    <string name="no_cats_message">У вас пока нет котиков</string>
+    <string name="add_first">Добавьте первого!</string>
+    <string name="cat_photo">Фото %1$s</string>
+    <string name="rating_icon">Рейтинг</string>
+    <string name="years_old">лет</string>
+    <string name="registered_at">Зарегистрирован: %1$s</string>
+    <string name="avatar">Аватар</string>
+    <string name="logout_title">Выход</string>
+    <string name="delete_account_title">Удаление аккаунта</string>
+    <string name="delete">Удалить</string>
+    <string name="restore_account_title">Восстановление аккаунта</string>
+    <string name="error">Ошибка</string>
+    <string name="warning">Внимание</string>
+    <string name="to_home">На главную</string>
+    <string name="wrong_id">Неверный ID пользователя</string>
+    <string name="restore_period_expired">Срок восстановления истек</string>
+    <string name="error_logout">Ошибка выхода</string>
+    <string name="error_delete">Ошибка удаления</string>
+    <string name="error_restore">Ошибка восстановления</string>
+    <string name="error_unknown">Неизвестная ошибка</string>
+    <string name="error_register_failed">Не удалось зарегистрироваться</string>
+    <string name="error_add_cat">Не удалось добавить котика: %1$s</string>
+    <string name="error_generic">Ошибка: %1$s</string>
+    <string name="error_user_not_found">Пользователь не найден</string>
+    <string name="error_account_not_found">Аккаунт не найден или уже восстановлен</string>
+    <string name="error_restore_failed">Не удалось восстановить аккаунт</string>
+    <string name="error_delete_failed">Не удалось удалить аккаунт</string>
+    <string name="error_invalid_email">Введите корректный email</string>
+    <string name="please_fill_all_fields">Пожалуйста, заполните все поля</string>
+    <string name="age">Возраст</string>
+    <string name="breed">Порода</string>
+    <string name="description">Описание</string>
+    <string name="name_field">Имя</string>
+    <string name="confirm_password_field">Подтверждение пароля</string>
 </resources>
